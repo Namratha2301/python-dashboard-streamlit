@@ -3,8 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-st.markdown(f'<style>{open("styles.css").read()}</style>', unsafe_allow_html=True)
-# Set page config
+# Set page config as the first Streamlit command
 st.set_page_config(page_title="Best Selling Books Dashboard", layout="wide")
 
 # Function to load data
