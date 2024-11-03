@@ -1,0 +1,13 @@
+body {
+    background-color: #f9f9f9;
+}
+
+h1, h2, h3 {
+    color: #6c4f6d; /* a soft brown color */
+}
+
+.stButton>button {
+    background-color: #d4a5a5; /* pastel red */
+    color: white;
+}
+
