@@ -1,11 +1,17 @@
+st.markdown(f'<style>{open("styles.css").read()}</style>', unsafe_allow_html=True)
+
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-# Function to load and clean data
-def load_and_clean_data():
-    data = pd.read_csv(best-selling-books.csv)
+# Set page config
+st.set_page_config(page_title="Best Selling Books Dashboard", layout="wide")
+
+# Function to load data
+@st.cache_data
+def load_data():
+    data = pd.read_csv("best-selling-books.csv")
     data['Genre'].fillna('Unknown', inplace=True)
     data['First published'] = pd.to_datetime(data['First published'], errors='coerce', format='%Y')
     data.dropna(subset=['First published'], inplace=True)
@@ -58,8 +64,8 @@ def main():
     st.title("Best Selling Books Dashboard")
     st.sidebar.header("Data Selection")
     
-    file_path = st.sidebar.text_input("Enter the CSV file path:", "/content/drive/My Drive/best-selling-books.csv")
-    data = load_and_clean_data(file_path)
+    # Load data
+    data = load_data()
 
     st.subheader("Sales Trend")
     plot_sales_trend(data)
