@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # Function to load and clean data
-def load_and_clean_data(best-selling-books.csv):
+def load_and_clean_data():
     data = pd.read_csv(best-selling-books.csv)
     data['Genre'].fillna('Unknown', inplace=True)
     data['First published'] = pd.to_datetime(data['First published'], errors='coerce', format='%Y')
